@@ -9,6 +9,7 @@ from reportlab.lib import colors
 import pymongo
 from bson import ObjectId
 from google.cloud import storage
+import os
 
 vertexai.init(project="pure-silicon-390116", location="us-central1")
 parameters = {
@@ -49,8 +50,11 @@ response = model.predict(input_text, **parameters)
 # Print or use the response as needed
 # print(response)
 
+current_date_time = datetime.now().strftime("%Y%m%d%H%M%S")
+output_directory = "resources/bufferFile/"
+
 # Create a PDF document
-pdf_filename = "blood_report.pdf"
+pdf_filename = os.path.join(output_directory, current_date_time + "_blood_report.pdf")
 document = SimpleDocTemplate(pdf_filename, pagesize=letter)
 
 # Create a list to hold the elements to be added to the PDF
@@ -93,20 +97,20 @@ query = {"_id": target_object_id}
 
 # Retrieve the document with the specified ObjectId
 user_document = collection.find_one(query)
-user_name = user_document.get("name")
+user_name = str(user_document.get("name"))
 dob = user_document.get("dateOfBirth")
 # Calculate the current date
 current_date = datetime.now().date()
 
 # Calculate the age
-age = current_date.year - dob.year - ((current_date.month, current_date.day) < (dob.month, dob.day))
+age = str(current_date.year - dob.year - ((current_date.month, current_date.day) < (dob.month, dob.day)))
 # Get the current date
 current_date = datetime.now().strftime("%B %d, %Y")
 
 # Add patient information
 patient_info = Paragraph(
-    "<b>Patient:</b> {user_name}<br/>"
-    "<b>AGE:</b>{age}<br/>"
+    f"<b>Patient:</b> {user_name}<br/>"
+    f"<b>AGE:</b> {age}<br/>"
     "<b>Gender:</b> Male<br/>"
     "<b>Date of Report:</b>" + current_date,
     normal_style
@@ -117,17 +121,17 @@ elements.append(Spacer(1, 12))
 # Define blood test results using sys arguments
 blood_test_results = [
     ("Test Name", "Result", "Reference Range"),
-    ("Hemoglobin", f"{sys.argv[3]}", "Male: 14 - 16 g%\nFemale: 12 - 14 g%"),
-    ("RBC Count", f"{sys.argv[2]}", "4.35 - 5.65 Mcl"),
-    ("MCV", f"{sys.argv[5]}", "80 - 99 fl"),
-    ("MCH", f"{sys.argv[6]}", "28 - 32 pg"),
-    ("MCHC", f"{sys.argv[7]}", "30 - 40 %"),
-    ("WBC Count", f"{sys.argv[1]}", "4000 - 11000 /cu.mm"),
-    ("Neutrophils", f"{sys.argv[9]}", "40 - 75 %"),
-    ("Lymphocytes", f"{sys.argv[10]}", "20 -45 %"),
-    ("Eosinophils", f"{sys.argv[12]}", "00 - 06 %"),
-    ("Monocytes", f"{sys.argv[11]}", "00 - 10 %"),
-    ("Platelet Count", f"{sys.argv[8]}", "150000 - 450000 / cu.mm"),
+    ("Hemoglobin", f"{sysargs_values['HGB']}", "Male: 14 - 16 g%<br/>Female: 12 - 14 g%"),
+    ("RBC Count", f"{sysargs_values['RBC']}", "4.35 - 5.65 Mcl"),
+    ("MCV", f"{sysargs_values['MCV']}", "80 - 99 fl"),
+    ("MCH", f"{sysargs_values['MCH']}", "28 - 32 pg"),
+    ("MCHC", f"{sysargs_values['MCHC']}", "30 - 40 %"),
+    ("WBC Count", f"{sysargs_values['WBC']}", "4000 - 11000 /cu.mm"),
+    ("Neutrophils", f"{sysargs_values['NE']}", "40 - 75 %"),
+    ("Lymphocytes", f"{sysargs_values['LY']}", "20 -45 %"),
+    ("Eosinophils", f"{sysargs_values['EO']}", "00 - 06 %"),
+    ("Monocytes", f"{sysargs_values['MO']}", "00 - 10 %"),
+    ("Platelet Count", f"{sysargs_values['PLT']}", "150000 - 450000 / cu.mm"),
 ]
 
 # Create a table with test results
@@ -163,7 +167,6 @@ elements.append(generated_by)
 
 # Build the PDF document
 document.build(elements)
-current_date_time = datetime.now().strftime("%Y%m%d%H%M%S")
 
 # Upload the PDF to a Google Cloud Storage bucket
 bucket_name = "criticalstrike1"
