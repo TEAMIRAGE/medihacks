@@ -1,0 +1,48 @@
+
+
+ <a href = "/mediLocker"><h2>Access MediLocker</h2></a>
+
+<h1>Fracture image Collection</h1>
+<% if (fractureSignedURLs.length === 0){ %>
+  <h3>Empty</h3>
+  <% } else { %>
+<% fractureSignedURLs.forEach((info) => { %>
+    
+    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
+    <h3>Date: <%= info.date %></h3>
+    <p>Result: <%= info.output %></p>
+    <a href = "/crud/delete-fracture-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+<% } %>
+
+
+
+  <h1>Blood Report Analysis Collection</h1>
+  <% if (bloodReportSignedURLs.length === 0){ %>
+    <h3>Empty</h3>
+    <% } else { %>
+
+<% bloodReportSignedURLs.forEach((info) => { %>
+    
+    <a href = "<%= info.signedURL %>"><img src="/images/pdf-image.png" alt="Image" style="height: 20px; width: auto;"></a>  
+    <h3>Date: <%= info.date %></h3>
+    <a href = "/crud/delete-anemia-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+  <% } %>
+
+
+
+    <h1>Tumor image Collection</h1>
+    <% if (tumorSignedURLs.length === 0){ %>
+      <h3>Empty</h3>
+      <% } else { %>
+<% tumorSignedURLs.forEach((info) => { %>
+  <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
+  <h3>Date: <%= info.date %></h3>
+  <p>Result: <%= info.output %></p>
+    <a href = "/crud/delete-tumor-collection/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+  <% } %>
+
+
+
