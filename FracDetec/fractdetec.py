@@ -10,21 +10,6 @@ from google.cloud import storage
 from dotenv import dotenv_values
 
 config = dotenv_values("config.env")
-key_path = config["GCP_JSON_KEY"]
-client = storage.Client.from_service_account_json(json_credentials_path=key_path)
-# Get the PDF file path from the command line arguments
-img_name = sys.argv[1]
-bucketName = config["GCP_BUCKET_NAME"]  
-bucket = storage.Bucket(client, bucketName)
-blob = bucket.blob(img_name)
-# Get the MIME type of the file
-content_type, _ = mimetypes.guess_type(img_name)
-
-# Set the file extension based on the MIME type
-file_extension = mimetypes.guess_extension(content_type)
-
-# Download the file with the appropriate extension
-blob.download_to_filename("resources/bufferFile/fracture" + file_extension)
 
 def is_radiograph(image_path):
     # Read the image using OpenCV
@@ -54,7 +39,7 @@ def preprocess_data(img_path, img_size=256):
     return img
 
 # Load the saved model from the file
-model = load_model('FracDetec/my_model.h5')
+model = load_model('FracDetec/my_model.h5') 
 
 # Function to check if the image has a fracture
 def has_fracture(image_path):
@@ -68,7 +53,7 @@ def has_fracture(image_path):
     return fracture_present
 
 # Call the function with the image path
-image_path = "resources/bufferFile/fracture" + file_extension
+image_path = 'resources/bufferFile/' + sys.argv[1]
 fracture_result = has_fracture(image_path)
 
 if fracture_result is None:
@@ -77,3 +62,14 @@ elif fracture_result:
     print("Fracture is present.")
 else:
     print("No fracture is detected.")
+
+# Upload the PDF to a Google Cloud Storage bucket
+bucket_name = "criticalstrike1"
+gcs_object_name = f"{sys.argv[1]}"  # Updated object name format
+# Initialize a GCS client
+client = storage.Client()
+# Get the bucket
+bucket = client.get_bucket(bucket_name)
+# Upload the file to GCS
+blob = bucket.blob(gcs_object_name)
+blob.upload_from_filename(image_path)
