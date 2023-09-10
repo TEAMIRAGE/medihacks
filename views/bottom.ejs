@@ -1,0 +1,49 @@
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'customColor': '#48cae4',
+                },
+                fontFamily: {
+                    'sans': ['Poppins', 'sans-serif'],
+                },
+                screens: {
+                    'xsm': '360px',
+                    // => @media (min-width: 640px) { ... }
+
+                    'sm': '640px',
+                    // => @media (min-width: 640px) { ... }
+
+                    'md': '768px',
+                    // => @media (min-width: 768px) { ... }
+
+                    'lg': '1024px',
+                    // => @media (min-width: 1024px) { ... }
+
+                    'xl': '1280px',
+                    // => @media (min-width: 1280px) { ... }
+
+                    '2xl': '1536px',
+                    // => @media (min-width: 1536px) { ... }
+                }
+            }
+        }
+    }
+</script>
+<script>
+    AOS.init({
+        once: 'true',
+    });
+</script>
+<script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+</script>
+</body>
+
+</html>
