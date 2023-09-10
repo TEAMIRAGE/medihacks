@@ -1,0 +1,135 @@
+<%- include('header.ejs') %>
+
+<div>
+    <section
+        class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden h-screen flex items-center">
+        <div class="h-screen absolute top-0 left-0 z-0">
+            <img src="images/bg1.jpg" alt="" class="w-screen h-full opacity-20">
+        </div>
+        <div
+            class="flex xl:w-[100%] relative z-10 mt-16 xsm:flex-col sm:flex-row md:flex-row justify-between items-center sm:w-[100%] md:w-[100%] xl:w-[100%] relative z-10 mt-16">
+            <div class="w-[50%] sm:mb-16 mt-0 xsm:w-[60%] mt-0 mb-16">
+                <h1 class="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">Consult your and
+                    your Family's health at diagnoScan</h1>
+                <a href="#bottom"
+                    class="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold hover:scale-110 duration-500">Quick
+                    Diagnosis</a>
+            </div>
+            <div class="flex flex-col justify-center ml-16 md:flex">
+                <div class="flex items-center mb-8">
+                    <i class="fa-solid fa-certificate text-xl" style="color: #ffffff;"></i>
+                    <p class="ml-8 text-white text-xl font-medium">AI model based diagnosis generator.</p>
+                </div>
+                <div class="flex items-center mb-8">
+                    <i class="fa-solid fa-certificate text-xl" style="color: #ffffff;"></i>
+                    <p class="ml-8 text-white text-xl font-medium">Model based on a large dataset for higher
+                        accuracy.</p>
+                </div>
+                <div class="flex items-center">
+                    <i class="fa-solid fa-certificate text-xl" style="color: #ffffff;"></i>
+                    <p class="ml-8 text-white text-xl font-medium">Save your data by Signing Up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- end hero -->
+
+<!-- start services -->
+<section class="relative xsm:px-8 sm:px-8 md:px-16 lg:px-20 xl:px-40 bg-[#f2f2f2]">
+    <div class="py-8 sm:py-12 lg:py-16 flex flex-wrap justify-center bg-white">
+        <div class="shadow-2xl p-4 m-4 text-center h-full w-full md:w-1/3 lg:w-1/3">
+            <div class="overflow-hidden mb-8" id="bottom">
+                <img src="images/bg2.jpg"
+                    class="object-cover hover:scale-125 duration-500 w-full h-48 sm:h-56 md:h-64 lg:h-72">
+            </div>
+            <i class="fas fa-laptop-code text-2xl text-customColor duration-500 animate-bounce"></i>
+            <h3 class="text-2xl font-bold py-2">Fracture Detection</h3>
+            <p>Get your Fracture detected through your X-rays images.</p>
+            <a href="/predicter-form/1"><i
+                    class="fa-solid fa-arrow-right duration-500 animate-pulse mt-4 text-xl"></i></a>
+        </div>
+        <div class="shadow-2xl p-4 m-4 text-center h-full w-full md:w-1/3 lg:w-1/3">
+            <div class="overflow-hidden mb-8">
+                <img src="images/bg5.jpg"
+                    class="object-cover hover:scale-125 duration-500 w-full h-48 sm:h-56 md:h-64 lg:h-72">
+            </div>
+            <i class="fas fa-laptop-code text-2xl text-customColor duration-500 animate-bounce"></i>
+            <h3 class="text-2xl font-bold py-2">Blood Report Diagnosis</h3>
+            <p>Get your Blood Report diagnosed with your CBC report pdf.</p>
+            <a href="/bloodReport-Analysis"><i
+                    class="fa-solid fa-arrow-right duration-500 animate-pulse mt-4 text-xl"></i></a>
+        </div>
+      
+        <div class="shadow-2xl p-4 m-4 text-center h-full w-full md:w-1/3 lg:w-1/3">
+            <div class="overflow-hidden mb-8">
+                <img src="images/bg9.jpg"
+                    class="object-cover hover:scale-125 duration-500 w-full h-48 sm:h-56 md:h-64 lg:h-72">
+            </div>
+            <i class="fas fa-laptop-code text-2xl text-customColor duration-500 animate-bounce"></i>
+            <h3 class="text-2xl font-bold py-2">Tumor Detection</h3>
+            <p>Get your Tumor detected through your MRI image.</p>
+            <a href="/predicter-form/4"><i
+                    class="fa-solid fa-arrow-right duration-500 animate-pulse mt-4 text-xl"></i></a>
+        </div>
+    </div>
+</section>
+<!-- end services -->
+
+<!-- start about -->
+<section class="relative xsm:px-8 sm:px-8 lg:px-16 xl:px-40 bg-[#f2f2f2]">
+    <div class="py-[50px] flex flex-col lg:flex-row justify-around bg-[#f2f2f2]">
+        <div class="flex flex-col w-full lg:w-[50%] lg:mx-0 lg:justify-evenly">
+            <p class="font-bold text-xl m-4 xsm:text-center sm:text-center md:text-center lg:text-left">ABOUT DIAGNOSCAN</p>
+            <p
+                class="font-bold text-3xl lg:text-8xl m-4 xsm:text-center sm:text-center md:text-center lg:text-left">
+                Our AI Expert Model for Diagnosis</p>
+            <p class="text-lg m-4 text-customColor xsm:text-center sm:text-center md:text-center lg:text-left">
+                All
+                studies report that AI models demonstrated an ability
+                to
+                perform fracture identification tasks on plain skeletal radiographs. Metrics used to report
+                performance are variable throughout all reviewed studies.</p>
+        </div>
+        <div class="w-full lg:w-[50%] flex flex-col justify-center px-6 py-4 text-center mx-3 lg:mx-0">
+            <p class="font-bold text-3xl lg:text-3xl m-3">Anemia Diagnosis</p>
+            <p class="text-lg mx-3 lg:text-lg">Our Anemia diagnosis is based on a dataset that uses the
+                parameters obtained from a CBC(Complete Blood Count) test and matches with the trained model.
+            </p>
+            <p class="font-bold text-3xl lg:text-3xl m-3">Fracture Detection</p>
+            <p class="text-lg mx-3 lg:text-lg">Our Fracture detection is based on an image dataset that matches
+                the
+                patient's X-ray with the dataset images in the trained model.</p>
+            <p class="font-bold text-3xl lg:text-3xl m-3">Heart Attack Prediction</p>
+            <p class="text-lg mx-3 lg:text-lg">Our Heart Attack Prediction is based on a dataset that uses the
+                parameters obtained from a ECG test and matches with the trained model.</p>
+            <p class="font-bold text-3xl lg:text-3xl m-3">Tumor Detection</p>
+            <p class="text-lg mx-3 lg:text-lg">Our Tumor detection is based on an image dataset that matches
+                the
+                patient's MRI with the dataset images in the trained model.</p>
+        </div>
+    </div>
+</section>
+<!-- end about -->
+
+<!-- start benefits -->
+<section class="relative xsm:px-8 sm:px-8 lg:px-16 xl:px-40 bg-[#f2f2f2]">
+    <div class="py-[50px] flex flex-col lg:flex-row justify-around bg-white">
+        <div class="w-full lg:w-1/2 px-6 py-4 text-center mx-3 lg:mx-0">
+            <img src="images/bg4.jpg" class="w-full sm:h-[200px] md:h-[400px]">
+        </div>
+        <div class="w-full lg:w-1/2 flex flex-col justify-center px-6 py-4 text-center lg:text-left">
+            <p class="font-bold text-5xl m-4">Benefits of diagnoScan</p>
+            <p class="font-bold text-3xl m-3">Diagnosis from Home</p>
+            <p class="text-lg mx-3">Our project aims to ease the diagnosis process by giving an early prediction
+                with the patient's ease.</p>
+            <p class="font-bold text-3xl m-3">Know your condition before consultation</p>
+            <p class="text-lg mx-3">Our trained model helps people to get an early diagnosis before visiting the
+                Doctor.</p>
+        </div>
+    </div>
+</section>
+<!-- end benefits -->
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

@@ -1,0 +1,65 @@
+<%- include('header.ejs') %>
+
+<div>
+    <section
+        class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 md:px-16 lg:px-40 xl:px-64 2xl:px-64 h-screen flex items-center">
+        <div class="h-screen absolute top-0 left-0 z-0">
+            <img src="/images/bg6.jpg" class="w-screen h-full opacity-20">
+        </div>
+        <div class="flex flex-col justify-center items-center relative z-10 mt-16">
+            <div class="mb-16 mt-16 xsm:w-full">
+                <h1 class="text-white text-center text-4xl md:text-5xl xl:text-6xl font-bold">Get diagnosed only
+                    at diagnoScan.</h1>
+                <div class="flex items-center justify-center h-full xsm:w-full">
+                    <form class="bg-gray-200 shadow-md rounded xsm:py-4 px-2 md:p-10 mt-[30px]" action="/api/uploadImage" method = "POST" enctype="multipart/form-data">
+                       
+                        <div class="mb-6">
+                            <label for="diseases" class="block mb-2 text-sm text-gray-900 font-bold">What to
+                                Diagnose ?</label>
+                            <select id="diseases" name = "option"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-black block w-full p-2.5"
+                                required>
+                               <% if (selected == 1){ %>
+                                <option  value="Anemia">Anemia</option>
+                                <option selected value="Fracture">Fracture</option>
+                                <option value="Heart">Heart Attack Prediction</option>
+                                <option value="Tumor">Tumor</option>
+                                <% } %>
+                               
+                              
+                                <% if (selected == 4){ %>
+                                        <option  value="Anemia">Anemia</option>
+                                        <option value="Fracture">Fracture</option>
+                                        <option value="Heart">Heart Attack Prediction</option>
+                                        <option selected value="Tumor">Tumor</option>
+                                 <% } %>
+                            </select>
+                        </div>
+                        <div class="flex flex-col items-center justify-between">
+                            <label for="fileType"
+                                class="drop-container border-2 border-dotted border-blue-900 m-2 p-2 cursor-pointer rounded hover:bg-slate-300 duration-300">
+                                <input type="file" id="fileType" name="file" required /><span
+                                    class="drop-title font-bold">Choose Files to Upload</span>
+                            </label>
+                            <button
+                                class="w-full mt-2 sm:mt-4 bg-green-500 hover:bg-green-700 duration-300 text-white font-bold py-2 px-4 rounded"
+                                type="submit">Process</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-12 flex items-center justify-center text-white">
+                    <hr class="border-3 border-white flex-grow">
+                    <span class="mx-2 text-lg">For Manual Entry, </span>
+                    <a href="/manual"
+                        class="text-xl underline transition duration-300 hover:scale-110">CLICK HERE</a>
+                    <hr class="border-3 border-white flex-grow">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- end hero -->
+
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

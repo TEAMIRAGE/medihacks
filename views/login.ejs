@@ -1,0 +1,90 @@
+<%- include('header.ejs') %>
+
+<div>
+  <section
+      class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden h-screen flex items-center">
+      <div class="h-screen absolute top-0 left-0 z-0">
+          <img src="images/bg1.jpg" alt="" class="w-screen h-full opacity-20">
+      </div>
+      <div class="flex flex-col main-form">
+        <div class="mt-16 wrapper lg:w-[100%] xl:[100%] relative z-10">
+          <div class="title-text">
+              <div class="title login">Login</div>
+          </div>
+          <div class="form-container">
+              <div class="form-inner">
+                  <form class="login-form">
+                      <div class="field">
+                        <input type = "text" name = "email" placeholder="Email" required />
+                      </div>
+                      <div class = "login-email-error"></div>
+                      <div class="field">
+                        <input type = "password" name = "password" placeholder="Password" required />
+                      </div>
+                      <div class = "login-password-error"></div>
+                      <div class="field btn">
+                          <div class="btn-layer"></div>
+                          <input type="submit" value="Login">
+                      </div>
+                      <div class="signup-link">Not a member? <a href="/signup">Signup now</a></div>
+                  </form>
+            </div>
+          </div>
+      </div>
+      <div class="mt-12 flex items-center justify-center text-white z-10">
+        <hr class="border-3 border-white flex-grow">
+        <span class="mx-2 text-lg">For Manual Diagnosis, </span>
+        <a href="/manual"
+            class="text-xl underline transition duration-300 hover:scale-110">CLICK HERE</a>
+        <hr class="border-3 border-white flex-grow">
+    </div>
+    </div>
+  </section>
+</div>
+ 
+<script>
+    const form = document.querySelector('.login-form');
+    const emailError = document.querySelector('.login-email-error');
+  const passwordError = document.querySelector('.login-password-error');
+
+    form.addEventListener('submit', async (e) =>{
+      e.preventDefault();
+
+// reset errors
+emailError.textContent = '';
+passwordError.textContent = '';
+
+
+//get the values
+const email = form.email.value;
+const password = form.password.value;
+
+try{  
+const res = await fetch('/login',{
+  method: 'POST',
+  body: JSON.stringify({email: email, password: password}),
+  headers: {'Content-Type': 'application/json'}
+});
+ 
+
+const data = await res.json();
+
+if(data.errors){    //data represents the request sending object, where errors is created variable in request side
+emailError.textContent = data.errors.email;
+passwordError.textContent = data.errors.password;
+}
+
+if(data.newUser){   //name of new variable while creating signup in database
+
+  location.assign('/');
+}
+ 
+
+}catch(err){
+console.log(err);
+}
+    });
+</script>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

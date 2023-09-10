@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>diagnoScan</title>
+    <link rel="logo-icon" sizes="180x180" href="images/logo-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    
+</head>
+    
+<body class="antialiased bg-white text-gray-900">
+    <main class="w-full">
+        
+        <div>
+            <section
+                class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden h-screen flex items-center">
+                <!-- start modal -->
+                <div id="defaultModal" tabindex="-1"
+                    class="w-full h-full absolute top-0 left-0 z-50 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+                    <!-- Modal content -->
+                    <div
+                        class="relative w-[50%] h-[50%] bg-white rounded-lg p-4 flex flex-col items-center justify-center xsm:w-[70%] xsm:h-[30%] md:w-[50%] md:h-[50%]">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-center mb-4">
+                            <img src= "/<%= resultImage %>" alt="" width="100px" height="100px">
+                        </div>
+                <!-- Modal body -->
+                <div class="flex flex-col items-center justify-center text-gray-700">
+                    
+                        <p><b><%= name %>, Report Status :</b> <%= resultString %></p>
+
+                        <br>
+
+                        <% if (showLink === 1) { %>
+                            
+                            <a href = "<%= pdfLink %>" >Open PDF </a>
+                              
+                            <% } %>
+
+                         
+                    <a href = "/"><button type="button" id="okCloseButton"
+                        class="my-4 px-4 py-2 bg-blue-500 text-white flex items-center justify-between rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                        OK
+                    </button></a>
+                </div>
+            </div>
+        </div>
+        <!-- end modal -->
+        <div class="h-screen absolute top-0 left-0 z-0">
+            <img src="/images/bg5.jpg" alt="" class="w-screen h-full opacity-20">
+        </div>
+    </section>
+ </div>
+ 
+ <%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

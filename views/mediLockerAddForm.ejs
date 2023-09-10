@@ -1,0 +1,68 @@
+
+
+
+
+<!-- action= "/api/mediLocker/Upload" method="post" enctype="multipart/form-data" -->
+<form class = "test-form" action= "/api/mediLocker/Upload" method="post" enctype="multipart/form-data" >   
+    <div class="div-test">
+    <input type = "text" name = "ReportName" placeholder="Report Name/Type" required />
+    </div>
+ 
+    <div class = "fileUpload-block">
+        <p> Upload file</p>
+        <input type="file"  name="file" required />
+    </div>
+
+    <div class="button">
+    <input type="submit" value="Submit">
+    </div>
+
+   
+</form>
+
+
+
+<!-- <script>
+    const form = document.querySelector('.test-form');
+   
+    form.addEventListener('submit', async (e) =>{
+        e.preventDefault();
+
+
+
+
+        //get the values
+        const reportName = form.reportName.value;
+        
+        const file = form.file.files[0];
+    
+        
+
+        try{  
+
+            const formInfo = new FormData();
+            formInfo.append('ReportName', ReportName);
+            formInfo.append('file', file);
+
+
+
+
+
+        const res = await fetch('/api/mediLocker/Upload',{
+          method: 'POST',
+          body: formInfo,
+        });
+         
+        const data = await res.json();
+
+        window.alert(data.success.message); 
+      window.location.href = '/mediLocker';
+         
+
+      }catch(err){
+       console.log(err);
+        }
+        
+    });
+</script> -->
+

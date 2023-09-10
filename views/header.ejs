@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel = 'stylesheet' href = "css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>diagnoScan</title>
+    <link rel="logo-icon" sizes="180x180" href="images/logo-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    
+</head>
+
+<body class="antialiased bg-white text-gray-900">
+    <main class="w-full">
+        <!-- start header -->
+        <nav class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
+            <div class="flex items-center justify-between py-6">
+                <!-- primary navbar items -->
+                <div class="left-section flex justify-between items-center w-[50%]">
+                    <div class="w-[40%] text-white">
+                        <a class='font-bold text-4xl text-center text-left w-full' href='/'>diagnoScan</a>
+                    </div>
+                    <div class="hidden md:flex items-center w-[40%] flex justify-between text-white">
+                        <a class='font-semibold text-md' href='/manual'>Services</a>
+                        <a class='font-semibold text-md' href='aboutUs'>About
+                            Us</a>
+                    </div>
+                </div>
+                <!-- Secondary Navbar items -->
+                <div class="hidden md:flex items-center right-section w-[50%] text-white">
+                    <div class="w-full flex justify-end rounded shadow-lg px-6 py-4 text-center p-0 shadow-none">
+                        <% if (user) { %>
+                        <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
+                            href='/user-collection'><%= user.name %></a>
+                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                            href='/logout'>Logout</a>
+                        <% } else { %>
+                            <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
+                            href='/login'>Login</a>
+                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                            href='/signup'>Signup</a>
+                        <% } %>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class=" w-6 h-6 text-white hover:text-white " x-show="!showMenu" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- mobile menu -->
+            <div class="hidden mobile-menu">
+                <ul class="">
+                    <% if (user) { %>
+                    <li><a href="#" class="flex w-full text-sm px-2 py-4 bg-white font-bold"><%= user.name %></a>
+                    </li>
+                    <li><a href="/logout" class="flex w-full text-sm px-2 py-4 bg-white">Logout</a>
+                    </li>
+                    <% } else { %>
+                    <li><a href="/login" class="flex w-full text-sm px-2 py-4 bg-white">Login</a>
+                    </li>
+                    <li><a href="/signup" class="flex w-full text-sm px-2 py-4 bg-white">Signup</a>
+                    </li>
+                    <% } %>
+                    <li><a href="/manual" class="flex w-full text-sm px-2 py-4 bg-white">Services</a>
+                    </li>
+                    <li><a href="aboutUs" class="flex w-full text-sm px-2 py-4 bg-white">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>

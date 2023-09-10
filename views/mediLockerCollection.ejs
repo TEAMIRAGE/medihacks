@@ -1,0 +1,17 @@
+
+
+<a href = "/mediLocker-add-form"> Add files</a>
+
+<h1>Medilocker - Your own private medical data</h1>
+<% if (mediLockerSignedURLs.length === 0){ %>
+  <h3>Empty</h3>
+  <% } else { %>
+<% mediLockerSignedURLs.forEach((info) => { %>
+    
+    <img src="<%= info.signedURL %>" alt="Image" style="height: 20px; width: auto;">
+    <h3>Date: <%= info.date %></h3>
+    <p>Report name/type: <%= info.ReportName %></p>
+    <a href = "/crud/delete-mediLocker-data/<%= info.uniqueID %>" ><button style="height: 10px; width: auto; border: 2px solid black;">Delete</button></a>
+  <% }); %>
+<% } %>
+
