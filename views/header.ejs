@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MediLab</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGreen: '#082926',
+                    },
+                    backgroundImage: {
+                        'leftGreenGradient': 'radial-gradient(circle, #244b2c, #20492e, #1c4630, #184431, #164132, #143e31, #123c31, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'rightGreenGradient': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'bottomGreen': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'lightGreenGradient': 'linear-gradient(to right, #a4f7e1, #b1f9f3, #c6f9fe, #dcf9ff, #f1faff, #f7fbff, #fcfdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Pacifico&family=Roboto&family=Sacramento&family=Zeyada&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    html,
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
+<body>
+    <main class="h-screen">
+        <nav class="navbar bg-transparent text-white absolute top-0 navbar-scroll">
+            <a href="/" class="nav-branding w-auto">MediLab</a>
+
+            <ul class="nav-menu w-[60%] flex justify-between">
+                <div class="nav-menu-sub flex">
+                    <li class="nav-item mx-4">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="aboutUs" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/manual" class="nav-link">Services</a>
+                    </li>
+                </div>
+                <div class="nav-menu-sub flex items-center">
+                    <% if (user) { %>
+                    <li class="nav-item mx-4">
+                        <a href="/user-collection" class="nav-link">Collections</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    <% } else { %>
+                    <li class="nav-item mx-4">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/signup" class="nav-link">Signup</a>
+                    </li>
+                    <% } %>
+                </div>
+            </ul>
+
+            <div class="hamburger hamburger-scroll">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>

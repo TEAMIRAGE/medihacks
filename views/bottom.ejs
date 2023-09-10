@@ -1,0 +1,63 @@
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    })
+
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }))
+
+    window.addEventListener('scroll', function () {
+        let navbar = document.querySelector('.navbar-scroll');
+        let scrolled = window.scrollY > 0;
+        navbar.classList.toggle('scrolled', scrolled);
+    });
+</script>
+
+<script>
+    const allReports = document.querySelector('#allReports')
+    const bloodReports = document.querySelector('#bloodReports')
+    const tumorReports = document.querySelector('#tumorReports')
+    const fractureReports = document.querySelector('#fractureReports')
+
+    const all = document.querySelector('#all');
+    const tumor = document.querySelector('#tumor');
+    const blood = document.querySelector('#blood');
+    const fracture = document.querySelector('#fracture');
+
+    allReports.addEventListener('click', () => {
+        all.classList.remove('hidden');
+        blood.classList.add('hidden');
+        tumor.classList.add('hidden');
+        fracture.classList.add('hidden');
+    })
+
+    bloodReports.addEventListener('click', () => {
+        all.classList.add('hidden');
+        blood.classList.remove('hidden');
+        tumor.classList.add('hidden');
+        fracture.classList.add('hidden');
+    })
+
+    fractureReports.addEventListener('click', () => {
+        all.classList.add('hidden');
+        blood.classList.add('hidden');
+        tumor.classList.add('hidden');
+        fracture.classList.remove('hidden');
+    })
+
+    tumorReports.addEventListener('click', () => {
+        all.classList.add('hidden');
+        blood.classList.add('hidden');
+        tumor.classList.remove('hidden');
+        fracture.classList.add('hidden');
+    })
+</script>
+</body>
+
+</html>

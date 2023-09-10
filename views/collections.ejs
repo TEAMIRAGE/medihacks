@@ -1,0 +1,121 @@
+<%- include('header.ejs') %>
+
+<section class="cover bg-darkGreen w-full h-screen">
+  <div class="h-full">
+    <img src="images/bg9.jpg" class="cover blur-[6px] w-full h-full opacity-40">
+  </div>
+  <div class="flex flex-col justify-center items-center absolute top-0 left-0 right-0 bottom-0">
+    <div class="xsm:m-4 p-2 md:p-10 flex flex-col justify-center items-center" data-aos="fade-up"
+      data-aos-duration="2000">
+      <h1 class="xsm:text-center sm:text-center text-6xl md:text-7xl my-4 text-white">We care
+        about your Health</h1>
+      <p class="text-xl text-white w-1/2 text-center my-4">At MediLab, we deeply care about our patient's
+        health and
+        well-being. Here, you can securely upload and manage all your medical documents and diagnostic
+        reports in one convenient location.</p>
+      <div class="flex">
+        <a href="#bottom"><button
+            class="m-4 p-4 bg-sky-400 text-white text-md font-bold rounded-xl duration-500 hover:-translate-y-1">View
+            Diagnosed
+            Reports</button></a>
+        <a href="/mediLocker"><button
+            class="m-4 p-4 bg-sky-700 text-white text-md font-bold rounded-xl duration-500 hover:-translate-y-1">Access
+            MediLocker</button></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=" flex flex-col top-0 h-4/5 w-full h-auto bg-bottomGreen">
+  <div class="my-8 flex flex-col items-center w-full h-auto">
+    <h1 class="w-full font-bold text-center text-6xl mb-4 text-white">
+      Diagnosed Reports</h1>
+    <div class="flex flex-start w-full">
+      <div id="blood" class="flex flex-col w-full m-8">
+        <h1 class="text-2xl font-bold m-8 text-white">Blood Reports</h1>
+        <div class="flex flex-wrap w-full">
+          <% if (bloodReportSignedURLs.length === 0){ %>
+          <h3 class="text-white text-xl mx-8">No Reports</h3>
+          <% } else { %>
+          <% bloodReportSignedURLs.forEach((info) => { %>
+          <div class="flex justify-center w-1/4 my-4">
+            <div class="bg-white shadow-xl rounded-xl w-10/12 h-full">
+              <a href="<%= info.signedURL %>">
+                <img class="rounded-t-lg w-full" src="/images/pdf-image.png" alt="">
+              </a>
+              <div class="flex justify-between p-5">
+                <h5 class="text-gray-900 text-lg mb-2">
+                  <%= info.date %></h5>
+                <a href="/crud/delete-bloodReport-collection/<%= info.uniqueID %>"
+                  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-start w-full">
+      <div id="tumor" class="flex flex-col w-full m-8">
+        <h1 class="text-2xl font-bold m-8 text-white">Tumor Reports</h1>
+        <div class="flex flex-wrap w-full">
+          <% if (tumorSignedURLs.length === 0){ %>
+          <h3 class="text-white text-xl mx-8">No Reports</h3>
+          <% } else { %>
+          <% tumorSignedURLs.forEach((info) => { %>
+          <div class="flex justify-center w-1/4 my-4">
+            <div class="bg-white shadow-xl rounded-xl w-10/12 h-full">
+              <a href="#">
+                <img class="rounded-t-lg w-full" src="<%= info.signedURL %>" alt="">
+              </a>
+              <div class="flex justify-between p-5">
+                <h5 class="text-gray-900 text-lg mb-2">
+                  <%= info.date %></h5>
+                <a href="/crud/delete-tumor-collection/<%= info.uniqueID %>"
+                  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-start w-full">
+      <div id="fracture" class="fflex flex-col w-full m-8">
+        <h1 class="text-2xl font-bold m-8 text-white">Fracture Reports</h1>
+        <div class="flex flex-wrap w-full">
+          <% if (fractureSignedURLs.length === 0){ %>
+          <h3 class="text-white text-xl mx-8">No Reports</h3>
+          <% } else { %>
+          <% fractureSignedURLs.forEach((info) => { %>
+          <div class="flex justify-center w-1/4 my-4">
+            <div class="bg-white shadow-xl rounded-xl w-10/12 h-full">
+              <a href="#" target="_blank">
+                <img class="rounded-t-lg w-full" src="<%= info.signedURL %>" alt="">
+              </a>
+              <div class="flex justify-between p-5">
+                <h5 class="text-gray-900 text-lg mb-2">
+                  <%= info.date %></h5>
+                <a href="/crud/delete-fracture-collection/<%= info.uniqueID %>"
+                  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

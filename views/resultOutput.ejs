@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MediLab</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGreen: '#082926',
+                    },
+                    backgroundImage: {
+                        'leftGreenGradient': 'radial-gradient(circle, #244b2c, #20492e, #1c4630, #184431, #164132, #143e31, #123c31, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'rightGreenGradient': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'bottomGreen': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'lightGreenGradient': 'linear-gradient(to right, #a4f7e1, #b1f9f3, #c6f9fe, #dcf9ff, #f1faff, #f7fbff, #fcfdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Pacifico&family=Roboto&family=Sacramento&family=Zeyada&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    html,
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
+<body>
+
+<section class="cover bg-darkGreen w-full h-screen">
+    <div class="h-full">
+        <img src="images/bg5.jpg" class="cover blur-[6px] w-full h-full opacity-40">
+    </div>
+    <div class="flex flex-col w-full h-1/4">
+        <div id="defaultModal" tabindex="-1"
+            class="w-full h-full absolute top-0 left-0 z-50 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+            <div class="relative w-[50%] h-[50%] bg-white rounded-lg p-4 flex flex-col items-center justify-center">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="/<%= resultImage %>" alt="" width="100px" height="100px">
+                </div>
+                <div class="flex flex-col items-center justify-center text-gray-700">
+                    <p><b><%= name %>, Report Status :</b> <%= resultString %></p><br>
+                   
+                    <% if (showLink === 1) { %>
+                            
+                        <a href = "<%= pdfLink %>" >Open PDF </a>
+                          
+                        <% } %>
+                    <a href="/"><button type="button" id="okCloseButton"
+                            class="my-4 px-4 py-2 bg-blue-500 text-white flex items-center justify-between rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                            OK
+                        </button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

@@ -1,0 +1,86 @@
+<%- include('header.ejs') %>
+
+<!-- action= "/api/mediLocker/Upload" method="post" enctype="multipart/form-data" -->
+<section class="relative flex items-center justify-center top-0 h-screen w-full">
+    <div class="w-[60%] bg-leftGreenGradient h-full"></div>
+    <div class="w-[60%] bg-rightGreenGradient h-full"></div>
+    <div class="absolute flex flex-col w-full h-full">
+        <div class="flex flex-col justify-center items-center relative z-10 mt-16">
+            <div class="mb-2 mt-24 xsm:w-full">
+                <h1 class="text-white text-center text-4xl md:text-5xl xl:text-6xl font-bold">Upload your reports
+                    at MediLab.</h1>
+                <div class="flex items-center justify-center h-full xsm:w-full">
+                    <form class="test-form bg-gray-200 shadow-md rounded xsm:py-4 px-2 md:p-10 mt-0"
+                        action="/api/mediLocker/Upload" method="post" enctype="multipart/form-data">
+                        <div class="div-test">
+                            <label for="diseases" class="block mb-2 text-sm text-gray-900 font-bold">What to
+                                Upload ?</label>
+                            <input type="text" name="ReportName" placeholder="Report Name/Type"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-black block w-full p-2.5"
+                                required />
+                        </div>
+
+                        <div class="fileUpload-block my-8">
+                            <label
+                                class="drop-container border-2 border-dotted border-blue-900 m-2 p-2 cursor-pointer rounded hover:bg-slate-300 duration-300">
+                                <input type="file" name="file" class="drop-title font-bold" required /><span
+                                    class="drop-title font-bold">Choose Files to Upload</span>
+                            </label>
+                        </div>
+
+                        <div
+                            class="button text-center w-full mt-2 sm:mt-4 bg-green-500 hover:bg-green-700 duration-300 text-white font-bold py-2 px-4 rounded">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>
+<!-- <script>
+    const form = document.querySelector('.test-form');
+   
+    form.addEventListener('submit', async (e) =>{
+        e.preventDefault();
+
+
+
+
+        //get the values
+        const reportName = form.reportName.value;
+        
+        const file = form.file.files[0];
+    
+        
+
+        try{  
+
+            const formInfo = new FormData();
+            formInfo.append('ReportName', ReportName);
+            formInfo.append('file', file);
+
+
+
+
+
+        const res = await fetch('/api/mediLocker/Upload',{
+          method: 'POST',
+          body: formInfo,
+        });
+         
+        const data = await res.json();
+
+        window.alert(data.success.message); 
+      window.location.href = '/mediLocker';
+         
+
+      }catch(err){
+       console.log(err);
+        }
+        
+    });
+</script> -->

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pure-silicon-390116",
+  "private_key_id": "5d3c01f54cc015522939ac21069a4f8457023799",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDqyd9GJO62gFLi\ngEOKFRo4WzxqkcaCZRb7woU8G2ClmQL7u0cb3r1m33VVwDrZA5+GLynOgQW3Nk9u\nWSbrTpb4FGeTSMsl+6XGaRXqZC9rgkzk4YtBRnoRSWcc4lnIbICA14sMD8HBwnrM\nIeDQx1IM+gakzidda1p/rD8MER1P7gDaOdILVZ0639s51m4MpYNejXxD0z1LW7Wn\n0xseMl0cER3rRsA09iGzE/BhsiHQ+HTFfYT+l+rFN/kt2Oqvlc7nMGsKZPCcETyD\n/cg0qY4pLQN9snnb3/EGLDwBdgkfeqfhO7XUt4bYmBSyclwfk6fTR47FQ9Qidbt9\n3GKN4KoTAgMBAAECggEAPpEySzZ/WKoErHBizzLFbHw/suSLAmefAtM4/yYKkMag\nSWYEUpR+Y6Ir2gCijf9NrQv3d5zhYYv7Cdx/Jxin2Y9SdKji3gncCO4rFW3CR0OP\nazUBj5EQ6Xdmn4dgRq1HZ05JMxsl1pUVdT2X8/sRzfx49cUsL1Ry5vAHUxdieNBg\nw1Y1p3l+/lJZV4lwsaf+DMQ86TX+LThF2hq5nDwDIapAZW89NaO4LwZ3bRaFwDTX\nAWWidz5SYdncQBVpHTd9ZBp5BhUBQBFmG0/ccUmxDk7MLEiRTUp3/3g9MVqs6Jho\n/gfjPHm8U5zUHmw50Zm9USzOrbvWjtpenlNbySfInQKBgQD4WSwYZ9byB4PTdgAU\nrXb3TWp61RvKjLlmOBBmUe9RXRbTtms2yfiDic58KdHKh4wmaCYu5rgcOpRlCF9N\nbVSdGToqnEfuHPfGAbqpsNC9qSQil1HB0UkFqeLOnkk9eIyTZAV5PXOvlGGmeAz7\n+jOirYlB7Z0KQA62PSKuydamtQKBgQDyBb+TE8hVpIvBYKIRHp3YOksFKe0zrnd2\niDWhrT49a5/8iWW50knwWqVGqrITCq1GpL8+ZH8PZQtQZYHsMwItSdV9DluFxnQz\n3nxCyOo3VeMJ0yC/sfB/17xRFLJDS+lyXJ0RcFcctIAT7eOlYTWdZa5apIBIx06/\nLQolNqqCpwKBgQCkfuQfMkCERYgCu6koCRHAkm2R+LAUxItU8pOiQmki2mbxSmXP\nf431CoVTZpvH62pgUiHgdP/D6uU52obNkTo3aGtHqAZY6KURaTnLhgttZKhDpTkJ\nCOe2MaXCN8PJTJzIT7r0aEjFJqJbki7/g+VJvmoo2gtnq7BS80GSxqw/9QKBgQCE\nYjCQOtnyPrdTZ5A+3QhqJjiy8mQVSPF/nLH5ZdINtrkkYeOK6UQYfPy60tPlJonx\nglw5vK7jtNmjeGLA2IXwT9q/NQNLAWq+lIxT26KB8jDmRt46/RIYW+FeWHvJ49Qm\nAhLIXzLHONR2EkHbTHkPR3c/jYu+Q4cHe5N5F5XdMQKBgG2HLF4UM3TKXq9c/O3d\nxNI77ZfFAk70ClCn7xItssAj7U2RppwkDy6ky39yR62D9oIFDby2Ve+lxHLDz7aY\nXjicCwx8OAg9cDgJ0Rr/p+2aHjQxSfIkS17KeyONRoGEyXLlJC6y1bi91f1uo1DV\nXtMaipYAcEE/6urgSI7Bm3pL\n-----END PRIVATE KEY-----\n",
+  "client_email": "libmanage@pure-silicon-390116.iam.gserviceaccount.com",
+  "client_id": "106418884605107690995",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/libmanage%40pure-silicon-390116.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

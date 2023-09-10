@@ -1,0 +1,56 @@
+<%- include('header.ejs') %>
+
+<section class="relative flex items-center justify-center top-0 h-screen w-full">
+    <div class="w-[60%] bg-leftGreenGradient h-full"></div>
+    <div class="w-[60%] bg-rightGreenGradient h-full"></div>
+    <div class="absolute flex flex-col w-full h-full">
+        <div class="flex flex-col justify-center items-center relative z-10 mt-16">
+            <div class="mb-2 mt-24 xsm:w-full">
+                <h1 class="text-white text-center text-4xl md:text-5xl xl:text-6xl font-bold">Get diagnosed only
+                    at MediLab.</h1>
+                <div class="flex items-center justify-center h-full xsm:w-full">
+                    <form class="bg-gray-200 shadow-md rounded xsm:py-4 px-2 md:p-10 mt-0"
+                        action="/api/uploadImage" method="post" enctype="multipart/form-data">
+
+                        <div class="mb-6">
+                            <label for="diseases" class="block mb-2 text-sm text-gray-900 font-bold">What to
+                                Diagnose ?</label>
+                            <select id="diseases" name="option"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-black block w-full p-2.5"
+                                required>
+                                <% if (selected == 1){ %>
+                                <option selected value="Fracture">Fracture</option>
+                                <option value="Tumor">Tumor</option>
+                                <% } %>
+                                <% if (selected == 4){ %>
+                                <option value="Fracture">Fracture</option>
+                                <option selected value="Tumor">Tumor</option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="flex flex-col items-center justify-between">
+                            <label for="fileType"
+                                class="drop-container border-2 border-dotted border-blue-900 m-2 p-2 cursor-pointer rounded hover:bg-slate-300 duration-300">
+                                <input type="file" id="fileType" name="file" required /><span
+                                    class="drop-title font-bold">Choose Files to Upload</span>
+                            </label>
+                            <button
+                                class="w-full mt-2 sm:mt-4 bg-green-500 hover:bg-green-700 duration-300 text-white font-bold py-2 px-4 rounded"
+                                type="submit">Process</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-4 flex items-center justify-center text-white">
+                    <hr class="border-3 border-white flex-grow">
+                    <span class="mx-2 text-lg">For Blood Report Analysis, </span>
+                    <a href="/manual" class="text-xl underline transition duration-300 hover:scale-110">CLICK HERE</a>
+                    <hr class="border-3 border-white flex-grow">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

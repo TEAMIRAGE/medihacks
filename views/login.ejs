@@ -1,0 +1,88 @@
+<%- include('header.ejs') %>
+
+<section class="cover bg-darkGreen w-full h-screen">
+  <div class="h-full">
+    <img src="images/bg7.jpg" class="cover blur-[6px] w-full h-full opacity-40">
+  </div>
+  <div class="flex flex-col justify-center items-center absolute top-0 left-0 right-0 bottom-0">
+    <div class="flex flex-col main-form">
+      <div class="mt-16 wrapper lg:w-[100%] xl:[100%] relative z-10">
+        <div class="title-text">
+          <div class="title login">Login</div>
+        </div>
+        <div class="form-container">
+          <div class="form-inner">
+            <form class="login-form">
+              <div class="field">
+                <input type="text" name="email" placeholder="Email" required />
+              </div>
+              <div class="login-email-error"></div>
+              <div class="field">
+                <input type="password" name="password" placeholder="Password" required />
+              </div>
+              <div class="login-password-error"></div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Login">
+              </div>
+              <div class="signup-link">Not a member? <a href="/signup">Signup now</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector('.login-form');
+  const emailError = document.querySelector('.login-email-error');
+  const passwordError = document.querySelector('.login-password-error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+
+    //get the values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const res = await fetch('/login', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+
+      const data = await res.json();
+
+      if (data
+        .errors) { //data represents the request sending object, where errors is created variable in request side
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+
+      if (data.newUser) { //name of new variable while creating signup in database
+
+        location.assign('/');
+      }
+
+
+    } catch (err) {
+      console.log(err);
+    }
+  });
+</script>
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>

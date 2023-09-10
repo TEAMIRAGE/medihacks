@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MediLab</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGreen: '#082926',
+                    },
+                    backgroundImage: {
+                        'leftGreenGradient': 'radial-gradient(circle, #244b2c, #20492e, #1c4630, #184431, #164132, #143e31, #123c31, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'rightGreenGradient': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'bottomGreen': 'radial-gradient(circle, #12504b, #134c46, #134942, #14453d, #144239, #133f36, #113c33, #103930, #0d352e, #0b312b, #092d29, #082926);',
+                        'lightGreenGradient': 'linear-gradient(to right, #a4f7e1, #b1f9f3, #c6f9fe, #dcf9ff, #f1faff, #f7fbff, #fcfdff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff);',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Pacifico&family=Roboto&family=Sacramento&family=Zeyada&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Freehand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    html,
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
+<body>
+    <main class="h-screen">
+        <nav class="navbar bg-darkGreen text-white sticky navbar-scroll">
+            <a href="/" class="nav-branding w-auto">MediLab</a>
+
+            <ul class="nav-menu w-[60%] flex justify-between">
+                <div class="nav-menu-sub flex">
+                    <li class="nav-item mx-4">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="aboutUs" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/manual" class="nav-link">Services</a>
+                    </li>
+                </div>
+                <div class="nav-menu-sub flex items-center">
+                    <% if (user) { %>
+                    <li class="nav-item mx-4">
+                        <a href="/user-collection" class="nav-link">Collections</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    <% } else { %>
+                    <li class="nav-item mx-4">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item mx-4">
+                        <a href="/signup" class="nav-link">Signup</a>
+                    </li>
+                    <% } %>
+                </div>
+            </ul>
+
+            <div class="hamburger hamburger-scroll">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <section class="relative flex items-center justify-center top-0 h-screen w-full">
+            <div class="w-[60%] bg-leftGreenGradient h-full border-solid"></div>
+            <div class="w-[60%] bg-rightGreenGradient h-full border-solid"></div>
+            <div class="absolute top-10 left-32 w-52 h-60 transform: -rotate-12">
+                <img src="images/bg1.jpg" class="rounded-xl w-full h-full">
+            </div>
+            <div class="absolute bottom-32 left-32 w-52 h-60 transform: rotate-12">
+                <img src="images/bg2.jpg" class="rounded-xl w-full h-full">
+            </div>
+            <div class="absolute top-40 right-32 w-60 h-64 transform: rotate-12">
+                <img src="images/bg3.jpg" class="rounded-xl w-full h-full">
+            </div>
+            <div class="absolute flex flex-col justify-center items-center">
+                <h1 class="w-2/5 font-bold xsm:text-center sm:text-center text-6xl md:text-8xl mb-4 text-white">
+                    Get yourself diagnosed at MediLab</h1>
+                <p class="mt-4 text-white text-center text-xl w-1/2">Experience Diagnosis excellence for a lifetime.
+                    Get Expert Medical Guidance
+                    from our AI model, Anytime. Start Your Journey to Better Health Today.
+                </p>
+                <button
+                    class="mt-8 text-lg py-4 px-16 text-white rounded-full bg-darkGreen duration-500 hover:scale-110">Get
+                    Diagnosed
+                </button>
+            </div>
+        </section>
+
+        <section class="relative flex flex-col top-0 h-4/5 w-full">
+            <div class="flex w-full h-full">
+                <div class="w-full h-2/5 bg-bottomGreen"></div>
+            </div>
+            <div class="absolute flex justify-center bg-transparent w-full h-full">
+                <div class="bg-white w-4/5 h-full rounded-2xl">
+                    <div class="h-full relative flex flex-col justify-center items-center">
+                        <button
+                            class="absolute -top-10 rounded-full w-20 h-20 text-6xl text-black bg-white duration-500 hover:bg-darkGreen hover:text-white">&#129043;</button>
+                        <h1 class="text-center mt-8 pt-8 font-bold text-6xl">Why Trust Us?</h1>
+                        <p class="mt-8 w-4/5 text-lg font-bold">At MediLab, we prioritize your health and well-being.
+                            Our
+                            team
+                            of experienced and certified medical professionals is dedicated to providing accurate and
+                            secure virtual diagnoses. Trust us to deliver reliable healthcare guidance from the comfort
+                            of your home. Rest assured, your privacy and confidentiality are our top priorities. We
+                            adhere to strict security measures to safeguard your personal information, ensuring a safe
+                            and trusted virtual diagnosis experience.</p>
+                        <div class="flex justify-between w-11/12 h-full mt-8 mx-6">
+                            <div class="flex flex-col items-center justify-center w-1/4 h-full rounded-xl border-2 border-[#27bbae] border-solid mx-2"
+                                data-aos="slide-up" data-aos-duration="800">
+                                <img src="images/reportColl.png" class="my-2 w-32 h-32" alt="" />
+                                <h1 class="mt-2 mb-1 text-center text-lg font-bold">AI diagnosed Results</h1>
+                                <p class="my-1 text-center text-[#666666]">Elevating your diagnosis experience from your
+                                    home.</p>
+                            </div>
+                            <div class="flex flex-col items-center justify-center w-1/4 h-full rounded-xl border-2 border-[#27bbae] border-solid mx-2"
+                                data-aos="slide-up" data-aos-duration="800">
+                                <img src="images/report.png" class="my-2 w-32 h-32" alt="" />
+                                <h1 class="mt-2 mb-1 text-center text-lg font-bold">Report Collection</h1>
+                                <p class="my-1 text-center text-[#666666]">Diagnosis and medical data at one place.</p>
+                            </div>
+                            <div class="flex flex-col items-center justify-center w-1/4 h-full rounded-xl border-2 border-[#27bbae] border-solid mx-2"
+                                data-aos="slide-up" data-aos-duration="800">
+                                <img src="images/verified.png" class="my-2 w-32 h-32" alt="" />
+                                <h1 class="mt-2 mb-1 text-center text-lg font-bold">Correct Results</h1>
+                                <p class="my-1 text-center text-[#666666]">Accurate AI Models for precise disease
+                                    predcition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-8 relative flex flex-col top-0 h-4/5 w-full">
+            <div class="flex bg-white w-full h-screen">
+                <div class="flex justify-end left w-2/5 h-full" data-aos="fade-left" data-aos-duration="800">
+                    <img src="images/nurse.png" class="w-full h-full" alt="">
+                </div>
+                <div class="right w-3/5" data-aos="fade-right" data-aos-duration="800">
+                    <h1 class="text-3xl text-darkGreen font-bold my-8 mx-8">ABOUT MEDILAB</h1>
+                    <h1 class="w-4/5 text-8xl font-bold my-8 mx-6">Get diagnosed at your Ease.</h1>
+                    <p class="w-10/12 my-8 mx-6 text-xl">Welcome to our virtual diagnosis platform, where cutting-edge
+                        AI technology
+                        transforms your
+                        health-related inquiries into actionable insights from the convenience of your own home. Our
+                        state-of-the-art AI system is dedicated to assisting you in understanding your health better.
+                        With advanced algorithms and personalized guidance, we'll work closely with you to provide
+                        valuable information, empowering you to make informed decisions about your well-being.
+                        Experience the convenience and peace of mind of our AI-powered virtual diagnosis platform today!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative flex items-center justify-center top-0 h-screen w-full">
+            <div class="w-[60%] bg-leftGreenGradient h-full"></div>
+            <div class="w-[60%] bg-rightGreenGradient h-full"></div>
+            <div class="absolute w-full h-full flex-col">
+                <div class="w-full my-8 flex flex-col" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="flex flex-col items-center w-full h-1/2">
+                        <h1 class="w-full font-bold text-center text-6xl mb-4 text-white">
+                            Services We Provide</h1>
+                        <p class="mt-4 text-white text-center text-lg w-3/5">At MediLab, we are
+                            dedicated to revolutionizing healthcare by harnessing the power of cutting-edge AI models.
+                            Our
+                            mission is to provide you with accurate and efficient healthcare solutions in the comfort of
+                            your own home. We have developed a platform that provides AI algorithms that can analyze
+                            your health data and provide personalized diagnostic results tailored to your specific
+                            needs.
+                            Whether you have questions about your overall health, specific medical conditions, or
+                            wellness
+                            recommendations, we are here to guide you every step of the way.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex justify-evenly w-full h-1/2" data-aos="zoom-in" data-aos-duration="800">
+                    <a href="/bloodReport-Analysis" class="w-1/4 duration-500 hover:scale-110">
+                        <div class="flex flex-col w-full items-center">
+                            <p class="text-3xl text-white font-bold my-2">Report Analysis</p>
+                            <img src="images/reportAnalysis.jpeg" class="h-64 w-72 rounded-xl my-6" alt="">
+                        </div>
+                    </a>
+                    <a href="/predicter-form/1" class="w-1/4 duration-500 hover:scale-110">
+                        <div class="flex flex-col w-full items-center">
+                            <p class="text-3xl text-white font-bold my-2">Fracture Detection</p>
+                            <img src="images/fracture.jpg" class="h-64 w-72 rounded-xl my-6" alt="">
+                        </div>
+                    </a>
+                    <a href="/predicter-form/4" class="w-1/4 duration-500 hover:scale-110">
+                        <div class="flex flex-col w-full items-center">
+                            <p class="text-3xl text-white font-bold my-2">Tumor Detection</p>
+                            <img src="images/tumor.jpg" class="h-64 w-72 rounded-xl my-6" alt="">
+                        </div>
+                    </a>
+                </div>
+        </section>
+
+        <%- include('footer.ejs') %>
+        <%- include('bottom.ejs') %>
