@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>diagnoScan</title>
+    <link rel="logo-icon" sizes="180x180" href="images/logo-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+    html,
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
+<body class="antialiased bg-white">
+    <main class="w-full">
+        <!-- start header -->
+        <div class="bg-gradient-to-r from-[#03071e] relative bg-customColor text-white">
+            <nav class="absolute top-0 left-0 w-full z-50 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
+                <div class="flex items-center justify-between py-6">
+                    <!-- primary navbar items -->
+                    <div class="left-section flex justify-between items-center w-[45%]">
+                        <div class="w-[40%] text-white">
+                            <a class='text-white font-bold text-4xl text-center text-left w-full'
+                                href='/'>diagnoScan</a>
+                        </div>
+                        <div class="hidden md:flex items-center w-[40%] flex justify-between text-white">
+                            <a class='font-semibold text-md' href='/'>Home</a>
+                            <a class='font-semibold text-md' href='/manual'>Services</a>
+                        </div>
+                    </div>
+                    <!-- Secondary Navbar items -->
+                <div class="hidden md:flex items-center right-section w-[50%] text-white">
+                    <div class="w-full flex justify-end rounded shadow-lg px-6 py-4 text-center p-0 shadow-none">
+                        <% if (user) { %>
+                        <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
+                            href='#'><%= user.name %></a>
+                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                            href='/logout'>Logout</a>
+                        <% } else { %>
+                            <a class='inline-block font-semibold px-4 py-2 bg-blue-600 bg-transparent hover:scale-110 duration-500'
+                            href='/login'>Login</a>
+                        <a class='inline-block font-semibold px-4 py-2 bg-transparent border border-white rounded hover:scale-110 duration-500'
+                            href='/signup'>Signup</a>
+                        <% } %>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class=" w-6 h-6 text-white hover:text-white " x-show="!showMenu" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- mobile menu -->
+            <div class="hidden mobile-menu">
+                <ul class="">
+                    <% if (user) { %>
+                    <li><a href="#" class="flex w-full text-sm px-2 py-4 bg-white text-black font-bold"><%= user.name %></a>
+                    </li>
+                    <li><a href="/logout" class="flex w-full text-sm px-2 py-4 text-black bg-white">Logout</a>
+                    </li>
+                    <% } else { %>
+                    <li><a href="/login" class="flex w-full text-sm px-2 py-4 text-black bg-white">Login</a>
+                    </li>
+                    <li><a href="/signup" class="flex w-full text-sm px-2 py-4 text-black bg-white">Signup</a>
+                    </li>
+                    <% } %>
+                    <li><a href="/" class="flex w-full text-sm px-2 py-4 text-black bg-white">Home</a>
+                    </li>
+                    <li><a href="/manual" class="flex w-full text-sm px-2 py-4 text-black bg-white">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            <!-- end header -->
+
+            <!--Hero-->
+            <div class="pt-24">
+                <section
+                    class="cover bg-gradient-to-r from-[#03071e] relative bg-customColor px-4 xsm:px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden h-screen flex items-center">
+                    <!--Left Col-->
+                    <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-center">
+                        <p class="uppercase tracking-loose w-full">Everything you need to know About Us</p>
+                        <h1 class="my-4 text-5xl font-bold leading-tight">
+                            OUR ROLES AND OUR OPERATIONS.
+                        </h1>
+                        <p class="leading-normal text-2xl mb-8">
+                            Get to know about our team !!
+                        </p>
+                        <a href="#info"><button
+                                class="mx-auto lg:mx-0 hover:scale-110 bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                Know More
+                            </button>
+                        </a>
+                    </div>
+                    <!--Right Col-->
+                    <div class="w-full xsm:hidden md:w-3/5 py-6 flex justify-center md:block">
+                        <img class="w-full md:w-4/5 z-50" src="images/team3.svg" />
+                    </div>
+                </section>
+            </div>
+            <div class="relative -mt-8">
+                <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <path
+                                d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+                                opacity="0.100000001"></path>
+                            <path
+                                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                                opacity="0.100000001"></path>
+                            <path
+                                d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+                                id="Path-4" opacity="0.200000003"></path>
+                        </g>
+                        <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <path
+                                d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- start team -->
+        <section class="bg-white py-8">
+            <div class="mx-10 flex xsm:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row items-center">
+                <h1 class="w-20% text-8xl font-bold text-center text-gray-800">
+                    OUR TEAM
+                </h1>
+                <div class="xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 p-6 flex flex-col" data-aos="fade-down"
+                    data-aos-duration="300">
+                    <div class="flex flex-col bg-white overflow-hidden shadow-2xl w-full">
+                        <div class="flex flex-col items-center">
+                            <img src="images/giri.jpg" class="rounded-full h-[200px] w-[200px]">
+                        </div>
+                        <div class="w-full my-6 font-bold text-xl text-gray-800 px-4 text-center">
+                            Giridhari Singh Bisht
+                        </div>
+                        <p class="w-full text-gray-600 text-xs text-center">
+                            Backend Developer
+                        </p>
+                    </div>
+                    <div class="flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div>
+                            <ul class="flex justify-center">
+                                <li>
+                                    <a href="https://www.instagram.com/ginni_2002" target="_blank">
+                                        <i class="fa-brands fa-instagram" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://www.linkedin.com/in/giridhari-singh-bisht-5078b1205/"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://github.com/ginni2002" target="_blank">
+                                        <i class="fa-brands fa-github" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 p-6 flex flex-col" data-aos="fade-down"
+                    data-aos-duration="300">
+                    <div class="flex flex-col bg-white overflow-hidden shadow-2xl w-full">
+                        <div class="flex flex-col items-center">
+                            <img src="images/aditya.jpg" class="rounded-full h-[200px] w-[200px]">
+                        </div>
+                        <div class="w-full my-6 font-bold text-xl text-gray-800 px-4 text-center">
+                            Aditya Vikram Singh
+                        </div>
+                        <p class="w-full text-gray-600 text-xs text-center">
+                            Frontend Developer
+                        </p>
+                    </div>
+                    <div class="flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div>
+                            <ul class="flex justify-center">
+                                <li>
+                                    <a href="https://www.instagram.com/aditya_vikram24" target="_blank">
+                                        <i class="fa-brands fa-instagram" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://www.linkedin.com/in/aditya-vikram-singh-4907a6270/"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://github.com/adivikramp" target="_blank">
+                                        <i class="fa-brands fa-github" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 p-6 flex flex-col" data-aos="fade-up"
+                    data-aos-duration="300">
+                    <div class="flex flex-col bg-white overflow-hidden shadow-2xl w-full">
+                        <div class="flex flex-col items-center">
+                            <img src="images/saksham.jpg" class="rounded-full h-[200px] w-[200px]">
+                        </div>
+                        <div class="w-full my-6 font-bold text-xl text-gray-800 px-4 text-center">
+                            Saksham Patel
+                        </div>
+                        <p class="w-full text-gray-600 text-xs text-center">
+                            DevOps
+                        </p>
+                    </div>
+                    <div class="flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div>
+                            <ul class="flex justify-center">
+                                <li>
+                                    <a href="https://www.instagram.com/skp_7484" target="_blank">
+                                        <i class="fa-brands fa-instagram" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://www.linkedin.com/in/saksham-patel-b876b2201/" target="_blank">
+                                        <i class="fa-brands fa-linkedin" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://github.com/criticalstrike18" target="_blank">
+                                        <i class="fa-brands fa-github" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="xsm:w-full sm:w-full md:w-1/2 lg:w-1/4 p-6 flex flex-col" data-aos="fade-up"
+                    data-aos-duration="300">
+                    <div class="flex flex-col bg-white overflow-hidden shadow-2xl w-full">
+                        <div class="flex flex-col items-center">
+                            <img src="images/hrishi.jpg" class="rounded-full h-[200px] w-[200px]">
+                        </div>
+                        <div class="w-full my-6 font-bold text-xl text-gray-800 px-4 text-center">
+                            Hrishikesh Balaji
+                        </div>
+                        <p class="w-full text-gray-600 text-xs text-center">
+                            Python Developer
+                        </p>
+                    </div>
+                    <div class="flex-none bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+                        <div>
+                            <ul class="flex justify-center">
+                                <li>
+                                    <a href="https://www.instagram.com/hbm__illustration" target="_blank">
+                                        <i class="fa-brands fa-instagram" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://www.linkedin.com/in/hrishikesh-madgundi-b31b0a1ba/"
+                                        target="_blank">
+                                        <i class="fa-brands fa-linkedin" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+
+                                <li class="ml-6">
+                                    <a href="https://github.com/HrishikeshM22" target="_blank">
+                                        <i class="fa-brands fa-github" style="color: #48cae4;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end team -->
+
+        <!-- start contribution -->
+        <section class="relative bg-[#f2f2f2]" id="info">
+            <div class="py-[50px] text-black flex flex-col">
+                <p class="xsm:text-5xl sm:text-6xl lg:text-8xl text-center mb-8">OUR CONTRIBUTION</p>
+                <div class="py-[50px] flex flex-wrap justify-around">
+                    <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
+                        data-aos-duration="300">
+                        <h3 class="text-5xl font-bold py-2 mt-6">Giridhari Singh Bisht</h3>
+                        <p class="font-semibold my-6">Backend Developer</p>
+                        <p>I've contributed in the backend development of the project - diagnoScan. I've
+                            designed, built, and maintained the server-side logic using NodeJS, and ExpressJS and
+                            MongoDB as
+                            the
+                            database to ensure efficient and reliable data processing and
+                            communication between the
+                            frontend and the backend. Troubleshooting to ensure smooth and reliable operations of the
+                            website is also a part of my contribution.</p><br>
+                        My main focus now will be to add user authentication as a part of my backend development.
+                    </div>
+                    <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
+                        data-aos-duration="300">
+                        <h3 class="text-5xl font-bold py-2 mt-6">Aditya Vikram Singh</h3>
+                        <p class="font-semibold my-6">Frontend Developer</p>
+                        <p>I've contributed in frontend development of the project- diagnoScan. I've created and
+                            implemented
+                            the
+                            user interface and user
+                            experience (UI/UX) of our website. I've used HTML, CSS, TailwindCSS and JavaScript to design
+                            and develop visually appealing and interactive interfaces that users can interact with.</p>
+                        <br>
+                        My main focus now will be to use ReactJS for the frontend development as part of my development.
+                    </div>
+                    <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
+                        data-aos-duration="300">
+                        <h3 class="text-5xl font-bold py-2 mt-6">Saksham Patel</h3>
+                        <p class="font-semibold my-6">DevOps</p>
+                        <p>I've tried to bridge the gap between development and operations teams, by
+                            implementing and maintaining the tools, processes, and automation necessary for efficient
+                            website
+                            development and deployment. I've also utilized tools such as
+                            version control, and my main contribution is the Fracture detection model that has been
+                            trained
+                            using a dataset of more than 40,000+ images.</p><br>
+                        My main focus now will be to improve the size of the dataset and train more models like Diabetes
+                        in
+                        future.
+                    </div>
+                    <div class="p-4 m-4 shadow-2xl text-center xsm:w-4/5 lg:w-2/5 h-auto" data-aos="fade-up"
+                        data-aos-duration="300">
+                        <h3 class="text-5xl font-bold py-2 mt-6">Hrishikesh Balaji</h3>
+                        <p class="font-semibold my-6">Python Developer</p>
+                        <p>My main contribution comes in the form of our Anemia detection model that has been trained
+                            using a dataset of around 1,500 patients. I've also contributed in the documentation of the
+                            project
+                            and by finding the required resources like the datasets that we have used in our project.
+                        </p>
+                        <br>
+                        My main focus now will be to train more models like Tumor detection in future.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end contribution -->
+
+        <!-- start vision -->
+        <section class="relative xsm:px-8 sm:px-8 lg:px-16 xl:px-40 bg-white text-black">
+            <div class="py-1 flex xsm:flex-col-reverse lg:flex-row items-center text-center">
+                <div class="w-[50%] px-6 py-4 text-center mx-3" data-aos="fade-up" data-aos-duration="800">
+                    <img src="images/team1.svg" class="w-full xsm:h-[200px] lg:h-[500px]">
+                </div>
+                <div class="flex flex-col justify-center md:w-[100%] xsm:mx-5 sm:mx-0" data-aos="fade-up"
+                    data-aos-duration="800">
+                    <p class="font-bold text-6xl m-4">OUR VISION</p>
+                    <p class="text-lg mx-3">We as a group strive to take diagnoScan to the next level by
+                        implementing
+                        multiple models for disease detection that will ease the process of diagnosis. We are working
+                        hard
+                        to achieve our next goal that is Tumor and Diabetes detection. We also wish to add user
+                        authentication so that patients can see their diagnosis history with us at any time.</p>
+                    <p class="font-bold text-3xl m-3">OUR MESSAGE</p>
+                    <p class="text-lg mx-3">We will try our best to make sure that everyone is able to get their reports
+                        diagnosed at their ease.</p>
+                </div>
+            </div>
+        </section>
+        <!-- end vision -->
+
+<%- include('footer.ejs') %>
+<%- include('bottom.ejs') %>
